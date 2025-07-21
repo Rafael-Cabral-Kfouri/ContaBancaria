@@ -1,0 +1,24 @@
+language = "java17"
+run = "cd src && javac Desafio.java && java Desafio"
+
+[nix]
+channel = "stable-24_05"
+packages = ["zulu17"]
+
+[packager]
+afterInstall = ""
+
+[env]
+JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 45302679
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd src && javac Desafio.java && java Desafio"
